@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Supermarket", "Supermarket", "{206F50A8-083E-4842-AFE8-04ADFEBC8C21}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RobotWars", "RobotWars", "{71992528-6879-4E3B-9731-ABAECC3E0B66}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{C2DD5238-7DA5-4AFB-8DD1-E87597478034}"
+	ProjectSection(SolutionItems) = preProject
+		Supermarket\README-Supermarket.md = Supermarket\README-Supermarket.md
+		..\Supermarket-Kata.md = ..\Supermarket-Kata.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{76FB0B3C-7735-46EE-AE96-C1FE8CB0CD5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supermarket.API", "Supermarket\Supermarket.API\Supermarket.API.csproj", "{7E30E4A1-82D3-45AA-9CE0-FE5ECCE193F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supermarket.Shared", "Supermarket\Supermarket.Shared\Supermarket.Shared.csproj", "{EE05FC17-9D32-4956-87D1-A666FAE57F13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supermarket.Tests", "Supermarket\Supermarket.Tests\Supermarket.Tests.csproj", "{7F144C2F-DFAA-4155-A0CA-A3357D942DAF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E30E4A1-82D3-45AA-9CE0-FE5ECCE193F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E30E4A1-82D3-45AA-9CE0-FE5ECCE193F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E30E4A1-82D3-45AA-9CE0-FE5ECCE193F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E30E4A1-82D3-45AA-9CE0-FE5ECCE193F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE05FC17-9D32-4956-87D1-A666FAE57F13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE05FC17-9D32-4956-87D1-A666FAE57F13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE05FC17-9D32-4956-87D1-A666FAE57F13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE05FC17-9D32-4956-87D1-A666FAE57F13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F144C2F-DFAA-4155-A0CA-A3357D942DAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F144C2F-DFAA-4155-A0CA-A3357D942DAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F144C2F-DFAA-4155-A0CA-A3357D942DAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F144C2F-DFAA-4155-A0CA-A3357D942DAF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C2DD5238-7DA5-4AFB-8DD1-E87597478034} = {206F50A8-083E-4842-AFE8-04ADFEBC8C21}
+		{76FB0B3C-7735-46EE-AE96-C1FE8CB0CD5B} = {71992528-6879-4E3B-9731-ABAECC3E0B66}
+		{7E30E4A1-82D3-45AA-9CE0-FE5ECCE193F9} = {206F50A8-083E-4842-AFE8-04ADFEBC8C21}
+		{EE05FC17-9D32-4956-87D1-A666FAE57F13} = {206F50A8-083E-4842-AFE8-04ADFEBC8C21}
+		{7F144C2F-DFAA-4155-A0CA-A3357D942DAF} = {206F50A8-083E-4842-AFE8-04ADFEBC8C21}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EF7E5762-6921-4238-A339-85F0317E24B4}
+	EndGlobalSection
+EndGlobal
