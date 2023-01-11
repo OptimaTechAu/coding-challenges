@@ -13,6 +13,9 @@
 
         public void Scan(string item)
         {
+            if (string.IsNullOrEmpty(item) || string.IsNullOrWhiteSpace(item))
+                return;
+
             _cartService.Add(item);
         }
 

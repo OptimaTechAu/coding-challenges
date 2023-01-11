@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Supermarket.Shared.Services
+﻿namespace Supermarket.Shared.Services
 {
     public class PricingService : IPricingService
     {
@@ -26,7 +20,7 @@ namespace Supermarket.Shared.Services
         }
 
         /// <summary>
-        /// If there is no Special Price just use the unique price * quantity
+        /// If there is no Special Price just use the (unique price * quantity)
         /// </summary>
         /// <param name="sku"></param>
         /// <param name="count"></param>
@@ -57,7 +51,7 @@ namespace Supermarket.Shared.Services
 
         public uint AddAllItemsInCart(IDictionary<string, uint> cart)
         {
-            uint total = 0; 
+            uint total = 0;
 
             foreach (KeyValuePair<string, uint> kvp in cart)
             {

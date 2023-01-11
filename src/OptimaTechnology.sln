@@ -5,21 +5,17 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Supermarket", "Supermarket", "{206F50A8-083E-4842-AFE8-04ADFEBC8C21}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RobotWars", "RobotWars", "{71992528-6879-4E3B-9731-ABAECC3E0B66}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{C2DD5238-7DA5-4AFB-8DD1-E87597478034}"
 	ProjectSection(SolutionItems) = preProject
 		Supermarket\README-Supermarket.md = Supermarket\README-Supermarket.md
 		..\Supermarket-Kata.md = ..\Supermarket-Kata.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{76FB0B3C-7735-46EE-AE96-C1FE8CB0CD5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Supermarket.API", "Supermarket\Supermarket.API\Supermarket.API.csproj", "{7E30E4A1-82D3-45AA-9CE0-FE5ECCE193F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supermarket.API", "Supermarket\Supermarket.API\Supermarket.API.csproj", "{7E30E4A1-82D3-45AA-9CE0-FE5ECCE193F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Supermarket.Shared", "Supermarket\Supermarket.Shared\Supermarket.Shared.csproj", "{EE05FC17-9D32-4956-87D1-A666FAE57F13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supermarket.Shared", "Supermarket\Supermarket.Shared\Supermarket.Shared.csproj", "{EE05FC17-9D32-4956-87D1-A666FAE57F13}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supermarket.Tests", "Supermarket\Supermarket.Tests\Supermarket.Tests.csproj", "{7F144C2F-DFAA-4155-A0CA-A3357D942DAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Supermarket.Tests", "Supermarket\Supermarket.Tests\Supermarket.Tests.csproj", "{7F144C2F-DFAA-4155-A0CA-A3357D942DAF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,7 +41,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C2DD5238-7DA5-4AFB-8DD1-E87597478034} = {206F50A8-083E-4842-AFE8-04ADFEBC8C21}
-		{76FB0B3C-7735-46EE-AE96-C1FE8CB0CD5B} = {71992528-6879-4E3B-9731-ABAECC3E0B66}
 		{7E30E4A1-82D3-45AA-9CE0-FE5ECCE193F9} = {206F50A8-083E-4842-AFE8-04ADFEBC8C21}
 		{EE05FC17-9D32-4956-87D1-A666FAE57F13} = {206F50A8-083E-4842-AFE8-04ADFEBC8C21}
 		{7F144C2F-DFAA-4155-A0CA-A3357D942DAF} = {206F50A8-083E-4842-AFE8-04ADFEBC8C21}

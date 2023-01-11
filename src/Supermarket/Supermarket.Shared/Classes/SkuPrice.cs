@@ -2,13 +2,13 @@
 {
     public class SkuPrice
     {
-        public string SKU { get; set; }
+        public string Sku { get; set; }
         public uint SinglePrice { get; set; }
         public SpecialPrice? SpecialPrice { get; set; }
 
         public SkuPrice(string sku, uint singlePrice)
         {
-            SKU = sku;
+            Sku = sku;
             SinglePrice = singlePrice;
         }
 

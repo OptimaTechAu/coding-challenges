@@ -20,7 +20,6 @@ namespace Supermarket.API.Controllers
         public ActionResult Scan(string sku)
         {
             _logger.LogInformation($"Scan SKU: {sku}");
-
             _checkoutService.Scan(sku);
             return Ok();
         }
@@ -29,8 +28,7 @@ namespace Supermarket.API.Controllers
         public ActionResult TotalPrice()
         {
             _logger.LogInformation("Getting total price.");
-            
-            return Ok($"Total price is ${_checkoutService.GetTotalPrice()}");
+            return Ok($"Total price is {((double) _checkoutService.GetTotalPrice() / 100).ToString("c")}");
         }
 
         [HttpPost("reset")]
@@ -38,8 +36,7 @@ namespace Supermarket.API.Controllers
         {
             _logger.LogInformation("Resetting checkout.");
             _checkoutService.Reset();
-
-            return Ok($"Total price is ${_checkoutService.GetTotalPrice()}");
+            return Ok();
         }
     }
 }
