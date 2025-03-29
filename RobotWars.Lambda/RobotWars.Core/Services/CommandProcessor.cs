@@ -26,8 +26,7 @@ namespace RobotWars.Core.Services
                     throw new RobotWarsException("Input cannot be empty.");
 
                 using var reader = new StringReader(input);
-
-                // Read the first line (Arena dimensions)
+                
                 var arenaSize = reader.ReadLine()?.Trim().Split(' ');
 
                 if (arenaSize == null || arenaSize.Length != 2 ||
@@ -77,8 +76,7 @@ namespace RobotWars.Core.Services
                 return $"Unexpected error processing commands: {ex.Message}";
             }
         }
-
-        // ✅ Ensure `ExecuteCommand` is PUBLIC and Matches Interface Signature
+        
         public void ExecuteCommand(Robot robot, Arena arena, char command)
         {
             switch (command)
