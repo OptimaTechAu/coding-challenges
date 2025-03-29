@@ -1,0 +1,149 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "CloudFormation template for Robot Wars serverless application with clean architecture",
+  "Parameters": {
+    "StageName": {
+      "Type": "String",
+      "Default": "prod",
+      "Description": "The API Gateway stage name"
+    },
+    "Environment": {
+      "Type": "String",
+      "Default": "dev",
+      "AllowedValues": ["dev", "test", "prod"],
+      "Description": "Environment name"
+    }
+  },
+  "Resources": {
+    "RobotWarsLambda": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": {
+          "Fn::Sub": "RobotWarsFunction-${Environment}"
+        },
+        "Handler": "RobotWars.Lambda::RobotWars.Lambda.Function::FunctionHandler",
+        "Runtime": "dotnet6",
+        "Code": {
+          "S3Bucket": { "Ref": "CodeBucket" },
+          "S3Key": "robotwars.zip"
+        },
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Role": { "Fn::GetAtt": ["LambdaExecutionRole", "Arn"] },
+        "Environment": {
+          "Variables": {
+            "ENVIRONMENT": { "Ref": "Environment" }
+          }
+        },
+        "Tags": [
+          {
+            "Key": "Application",
+            "Value": "RobotWars"
+          },
+          {
+            "Key": "Environment",
+            "Value": { "Ref": "Environment" }
+          }
+        ]
+      }
+    },
+    "LambdaExecutionRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": ["lambda.amazonaws.com"]
+              },
+              "Action": ["sts:AssumeRole"]
+            }
+          ]
+        },
+        "ManagedPolicyArns": [
+          "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+        ],
+        "Tags": [
+          {
+            "Key": "Application",
+            "Value": "RobotWars"
+          },
+          {
+            "Key": "Environment",
+            "Value": { "Ref": "Environment" }
+          }
+        ]
+      }
+    },
+    "CodeBucket": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketName": {
+          "Fn::Sub": "robotwars-deployment-${Environment}-${AWS::AccountId}"
+        },
+        "VersioningConfiguration": {
+          "Status": "Enabled"
+        },
+        "BucketEncryption": {
+          "ServerSideEncryptionConfiguration": [
+            {
+              "ServerSideEncryptionByDefault": {
+                "SSEAlgorithm": "AES256"
+              }
+            }
+          ]
+        },
+        "Tags": [
+          {
+            "Key": "Application",
+            "Value": "RobotWars"
+          },
+          {
+            "Key": "Environment",
+            "Value": { "Ref": "Environment" }
+          }
+        ]
+      }
+    },
+    "RobotWarsApi": {
+      "Type": "AWS::ApiGateway::RestApi",
+      "Properties": {
+        "Name": {
+          "Fn::Sub": "RobotWarsAPI-${Environment}"
+        },
+        "Description": "API for the Robot Wars application",
+        "EndpointConfiguration": {
+          "Types": ["REGIONAL"]
+        },
+        "Tags": [
+          {
+            "Key": "Application",
+            "Value": "RobotWars"
+          },
+          {
+            "Key": "Environment",
+            "Value": { "Ref": "Environment" }
+          }
+        ]
+      }
+    },
+    "RobotWarsResource": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "RestApiId": { "Ref": "RobotWarsApi" },
+        "ParentId": { "Fn::GetAtt": ["RobotWarsApi", "RootResourceId"] },
+        "PathPart": "robots"
+      }
+    },
+    "RobotWarsMethod": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "RestApiId": { "Ref": "RobotWarsApi" },
+        "ResourceId": { "Ref": "RobotWarsResource" },
+        "HttpMethod": "POST",
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "Type": "AWS_PROXY",
+          "Integration

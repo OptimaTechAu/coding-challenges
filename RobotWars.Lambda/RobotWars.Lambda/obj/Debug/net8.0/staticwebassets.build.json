@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "DWS+NqdcM4uBr0eGSHVCXJrtH90DY2QvID7Q5+GjTAU=",
+  "Source": "RobotWars.Lambda",
+  "BasePath": "_content/RobotWars.Lambda",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
