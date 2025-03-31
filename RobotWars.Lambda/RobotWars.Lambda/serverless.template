@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "CloudFormation template for Robot Wars serverless application with clean architecture",
+  "Description": "CloudFormation template for Robot Wars serverless application",
   "Parameters": {
     "StageName": {
       "Type": "String",
@@ -63,7 +63,8 @@
           ]
         },
         "ManagedPolicyArns": [
-          "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+          "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+          "arn:aws:iam::aws:policy/AmazonAPIGatewayInvokeFullAccess"
         ],
         "Tags": [
           {
@@ -146,4 +147,56 @@
         "AuthorizationType": "NONE",
         "Integration": {
           "Type": "AWS_PROXY",
-          "Integration
+          "IntegrationHttpMethod": "POST",
+          "Uri": {
+            "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${RobotWarsLambda.Arn}/invocations"
+          },
+          "IntegrationResponses": [
+            {
+              "StatusCode": 200,
+              "ResponseTemplates": {
+                "application/json": ""
+              }
+            }
+          ]
+        },
+        "MethodResponses": [
+          {
+            "StatusCode": 200,
+            "ResponseModels": {
+              "application/json": "Empty"
+            }
+          }
+        ]
+      }
+    },
+    "RobotWarsApiGatewayStage": {
+      "Type": "AWS::ApiGateway::Stage",
+      "Properties": {
+        "StageName": { "Ref": "StageName" },
+        "RestApiId": { "Ref": "RobotWarsApi" },
+        "DeploymentId": { "Ref": "RobotWarsApiDeployment" }
+      }
+    },
+    "RobotWarsApiDeployment": {
+      "Type": "AWS::ApiGateway::Deployment",
+      "Properties": {
+        "RestApiId": { "Ref": "RobotWarsApi" },
+        "StageName": { "Ref": "StageName" }
+      },
+      "DependsOn": ["RobotWarsMethod"]
+    }
+  },
+  "Outputs": {
+    "LambdaFunctionName": {
+      "Description": "Lambda Function ARN",
+      "Value": { "Ref": "RobotWarsLambda" }
+    },
+    "ApiUrl": {
+      "Description": "URL of the RobotWars API",
+      "Value": {
+        "Fn::Sub": "https://${RobotWarsApi}.execute-api.${AWS::Region}.amazonaws.com/${StageName}/robots"
+      }
+    }
+  }
+}
