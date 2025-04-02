@@ -1,0 +1,112 @@
+# .NET build/output directories
+bin/
+obj/
+out/
+publish/
+
+# Build results
+*.dll
+*.pdb
+*.exe
+*.cache
+*.config
+*.manifest
+*.spec
+
+# VS cache/options directory
+.vs/
+.vscode/
+.ionide/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.swp
+
+# IDE/Editor files
+*.swp
+*.swo
+*~
+*.orig
+*.log
+*.dotCover
+
+# ReSharper
+_ReSharper.*
+*.ReSharper
+*.DotSettings.user
+
+# Rider
+.idea/
+*.sln.iml
+
+# NuGet packages directory
+.nuget/
+packages/
+
+# NuGet cache
+.nupkg/
+local-nuget-cache/
+
+# Azure Functions localsettings file
+local.settings.json
+
+# AWS Lambda tool directory
+.lambda/
+
+# Test results
+TestResults/
+*.trx
+*.coverage
+coverage.*
+*.coverage.xml
+
+# Code coverage
+coverage/
+*.cover
+*.coverage
+*.lcov
+
+# Build server
+[Bb]in/
+[Oo]bj/
+[Tt]emp/
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# MacOS
+.DS_Store
+
+# Node.js (if using any Node-based tools)
+node_modules/
+npm-debug.log
+
+# Python (if using any Python tools)
+__pycache__/
+*.py[cod]
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Visual Studio Code
+.history/
+*.code-workspace
+
+# AWS SAM CLI
+.sam/
+.aws-sam/
+
+# Serverless Framework
+.serverless/
+
+# Dotnet tools
+.dotnet/
+tools/
+
+# Local development files
+*.local
+.env
+.env.local
