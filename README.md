@@ -9,7 +9,7 @@ If you have not used GitHub before, you will need to [create an account](https:/
 
 ## What to do
 
-[Fork this repository](https://help.github.com/articles/fork-a-repo) and create your answers to the challenges. Once done send a [Pull Request](https://help.github.com/articles/using-pull-requests) or email to <coding-challenges@billidentity.com>. Further instructions can be found in the individual challenges.
+[Fork this repository](https://help.github.com/articles/fork-a-repo) and create your answers to the challenges. Once done send a [Pull Request](https://help.github.com/articles/using-pull-requests) or email to <careers@optimatech.io>. Further instructions can be found in the individual challenges.
 
 ##  Challenges
 
