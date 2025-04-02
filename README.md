@@ -14,4 +14,4 @@ If you have not used GitHub before, you will need to [create an account](https:/
 ##  Challenges
 
 * [Robot Wars](Robot-Wars.md)
-* [Supermarket Kata](Supermarket-Kata.md)
+* [Supermarket Kata](Serverless-Robot-Wars.md)
