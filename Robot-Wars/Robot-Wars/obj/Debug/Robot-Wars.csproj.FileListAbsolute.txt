@@ -1,0 +1,7 @@
+D:\Git\Robot-Wars\Robot-Wars\bin\Debug\Robot-Wars.exe.config
+D:\Git\Robot-Wars\Robot-Wars\bin\Debug\Robot-Wars.exe
+D:\Git\Robot-Wars\Robot-Wars\bin\Debug\Robot-Wars.pdb
+D:\Git\Robot-Wars\Robot-Wars\obj\Debug\Robot-Wars.csproj.AssemblyReference.cache
+D:\Git\Robot-Wars\Robot-Wars\obj\Debug\Robot-Wars.csproj.CoreCompileInputs.cache
+D:\Git\Robot-Wars\Robot-Wars\obj\Debug\Robot-Wars.exe
+D:\Git\Robot-Wars\Robot-Wars\obj\Debug\Robot-Wars.pdb
