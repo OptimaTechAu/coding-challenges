@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "RobotWarServerless": {
+      "commandName": "Project"
+    },
+    "Profile 1": {
+      "commandName": "Executable",
+      "executablePath": "a",
+      "commandLineArgs": "a",
+      "workingDirectory": "a"
+    }
+  }
+}
