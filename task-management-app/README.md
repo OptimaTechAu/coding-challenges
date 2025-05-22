@@ -2,9 +2,13 @@
 
 This repository contains my implementation of a task management application as part of a coding challenge. The application allows users to create, manage, filter, and sort tasks with a responsive interface and theme switching capabilities.
 
+## Live Demo
+
+The application is deployed and available [here](https://coding-challenges-delta.vercel.app/)
+
 ## Technology Stack
 
-- **Frontend Framework**: Angular 15.2.6
+- **Frontend Framework**: Angular 15.2.11
 - **Language**: TypeScript
 - **Node.js Version**: 18.12.1
 - **Styling**: SCSS with CSS Variables for theming
