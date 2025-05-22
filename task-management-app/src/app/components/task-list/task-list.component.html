@@ -1,0 +1,198 @@
+<div class="task-list-container">
+  <div class="filter-section">
+    <button
+      class="filter-header"
+      (click)="toggleFiltersVisibility()"
+      (keydown.enter)="toggleFiltersVisibility()"
+      tabindex="0"
+      role="button"
+      [attr.aria-expanded]="isFiltersExpanded"
+      aria-controls="filter-content"
+    >
+      <h3>
+        <fa-icon [icon]="icons.FILTER"></fa-icon>
+        Filters
+        <span class="filter-count" *ngIf="isAnyFilterActive()">
+          ({{
+            selectedPriorities.length +
+              (dateRange.startDate || dateRange.endDate ? 1 : 0)
+          }})
+        </span>
+      </h3>
+      <div class="filter-actions">
+        <button
+          *ngIf="isAnyFilterActive()"
+          (click)="clearAllFilters(); $event.stopPropagation()"
+          class="clear-all-btn"
+        >
+          <fa-icon [icon]="icons.FILTER_CLEAR"></fa-icon>
+          Clear All
+        </button>
+        <span class="toggle-btn">
+          <fa-icon
+            [icon]="isFiltersExpanded ? icons.CHEVRON_UP : icons.CHEVRON_DOWN"
+          ></fa-icon>
+        </span>
+      </div>
+    </button>
+
+    <div
+      class="filter-content"
+      id="filter-content"
+      [class.expanded]="isFiltersExpanded"
+    >
+      <div class="filter-group">
+        <h4>Priority</h4>
+        <div class="filter-buttons">
+          <button
+            [class.active]="isPrioritySelected(Priority.Low)"
+            (click)="togglePriorityFilter(Priority.Low)"
+            class="priority-low"
+          >
+            Low
+          </button>
+          <button
+            [class.active]="isPrioritySelected(Priority.Medium)"
+            (click)="togglePriorityFilter(Priority.Medium)"
+            class="priority-medium"
+          >
+            Medium
+          </button>
+          <button
+            [class.active]="isPrioritySelected(Priority.High)"
+            (click)="togglePriorityFilter(Priority.High)"
+            class="priority-high"
+          >
+            High
+          </button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <h4>Date Range</h4>
+        <form
+          [formGroup]="dateFilterForm"
+          (ngSubmit)="applyDateFilter()"
+          class="date-filter-form"
+        >
+          <div class="date-inputs">
+            <div class="form-group">
+              <label for="startDate">From</label>
+              <input
+                type="date"
+                id="startDate"
+                formControlName="startDate"
+                class="date-input"
+              />
+            </div>
+            <div class="form-group">
+              <label for="endDate">To</label>
+              <input
+                type="date"
+                id="endDate"
+                formControlName="endDate"
+                class="date-input"
+              />
+            </div>
+          </div>
+          <div class="date-filter-actions">
+            <button type="submit" class="apply-btn">Apply</button>
+            <button type="button" (click)="clearDateFilter()" class="clear-btn">
+              Clear
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="filter-group">
+        <h4>Sort by Date</h4>
+        <button (click)="toggleSortDirection()" class="sort-btn">
+          <ng-container *ngIf="sortDirection === 'desc'">
+            <fa-icon [icon]="icons.SORT_DESC"></fa-icon> Newest First
+          </ng-container>
+          <ng-container *ngIf="sortDirection === 'asc'">
+            <fa-icon [icon]="icons.SORT_ASC"></fa-icon> Oldest First
+          </ng-container>
+        </button>
+      </div>
+
+      <div *ngIf="isAnyFilterActive()" class="active-filters">
+        <h4>Active Filters:</h4>
+        <div class="filter-pills">
+          <ng-container *ngFor="let priority of selectedPriorities">
+            <span [class]="'filter-pill ' + getPriorityClass(priority)">
+              {{ priority }}
+              <button
+                (click)="togglePriorityFilter(priority)"
+                class="remove-filter"
+              >
+                ×
+              </button>
+            </span>
+          </ng-container>
+          <ng-container *ngIf="dateRange.startDate || dateRange.endDate">
+            <span class="filter-pill date-filter">
+              Date:
+              {{
+                dateRange.startDate
+                  ? (dateRange.startDate | date : DATE_FORMATS.SHORT_DATE)
+                  : "Any"
+              }}
+              -
+              {{
+                dateRange.endDate
+                  ? (dateRange.endDate | date : DATE_FORMATS.SHORT_DATE)
+                  : "Any"
+              }}
+              <button (click)="clearDateFilter()" class="remove-filter">
+                ×
+              </button>
+            </span>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tasks-wrapper">
+    <h2>Tasks</h2>
+    <div class="tasks-list">
+      <div
+        *ngFor="let task of tasks$ | async"
+        class="task-item"
+        [class.completed]="task.completed"
+      >
+        <div class="task-header">
+          <div class="task-checkbox">
+            <input
+              type="checkbox"
+              [checked]="task.completed"
+              (change)="toggleTaskCompletion(task.id)"
+              id="task-{{ task.id }}"
+            />
+            <label for="task-{{ task.id }}">{{ task.title }}</label>
+          </div>
+          <div class="task-actions">
+            <span
+              [class]="getPriorityClass(task.priority)"
+              class="priority-badge"
+            >
+              {{ task.priority }}
+            </span>
+            <button (click)="deleteTask(task.id)" class="delete-btn">
+              Delete
+            </button>
+          </div>
+        </div>
+        <p class="task-description">{{ task.description }}</p>
+        <div class="task-date">
+          Created: {{ task.createdAt | date : DATE_FORMATS.MEDIUM }}
+        </div>
+      </div>
+
+      <div *ngIf="(tasks$ | async)?.length === 0" class="no-tasks">
+        <p>No tasks found. Try clearing filters or add a new task.</p>
+      </div>
+    </div>
+  </div>
+</div>

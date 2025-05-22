@@ -1,0 +1,61 @@
+<div class="task-form-container">
+  <h2>Add New Task</h2>
+
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        id="title"
+        formControlName="title"
+        placeholder="Enter task title"
+      />
+      <div *ngIf="formSubmitted && title?.invalid" class="validation-error">
+        <span *ngIf="title?.errors?.['required']">Title is required</span>
+        <span *ngIf="title?.errors?.['maxlength']"
+          >Title must be less than 100 characters</span
+        >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        formControlName="description"
+        rows="3"
+        placeholder="Enter task description"
+      ></textarea>
+      <div
+        *ngIf="formSubmitted && description?.invalid"
+        class="validation-error"
+      >
+        <span *ngIf="description?.errors?.['maxlength']"
+          >Description must be less than 500 characters</span
+        >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="priority-High">Priority</label>
+      <div class="priority-selector">
+        <div *ngFor="let priority of priorities" class="priority-option">
+          <input
+            type="radio"
+            [id]="'priority-' + priority"
+            [value]="priority"
+            formControlName="priority"
+          />
+          <label
+            [for]="'priority-' + priority"
+            [class]="'priority-' + priority.toLowerCase()"
+          >
+            {{ priority }}
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="submit-btn">Add Task</button>
+  </form>
+</div>

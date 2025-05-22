@@ -1,0 +1,136 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Global Styles and Theme Variables */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Define theme CSS variables */
+  --font-family: 'Inter', sans-serif;
+  
+  /* Light Theme (default) */
+  --bg-color: #f8f9fa;
+  --text-color: #212529;
+  --text-muted: #6c757d;
+  --border-color: #dee2e6;
+  --hover-color: #e9ecef;
+  --card-bg: #ffffff;
+  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --header-bg: #4263eb;
+  --header-text: #ffffff;
+  --header-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --footer-bg: #f1f3f5;
+  --footer-text: #495057;
+  --accent-color: #4263eb;
+  --accent-hover: #3b5bdb;
+  --accent-text: #ffffff;
+  --accent-color-rgb: 66, 99, 235;
+  --input-bg: #ffffff;
+  --filter-bg: rgba(66, 99, 235, 0.1);
+  
+  /* Priority colors */
+  --priority-low: #40c057;
+  --priority-low-bg: rgba(64, 192, 87, 0.15);
+  --priority-medium: #fd7e14;
+  --priority-medium-bg: rgba(253, 126, 20, 0.15);
+  --priority-high: #fa5252;
+  --priority-high-bg: rgba(250, 82, 82, 0.15);
+  
+  /* Utility colors */
+  --danger-color: #fa5252;
+  --danger-bg: rgba(250, 82, 82, 0.1);
+}
+
+/* Dark Theme */
+.theme-dark {
+  --bg-color: #212529;
+  --text-color: #f8f9fa;
+  --text-muted: #adb5bd;
+  --border-color: #495057;
+  --hover-color: #343a40;
+  --card-bg: #343a40;
+  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --header-bg: #212529;
+  --header-text: #f8f9fa;
+  --header-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --footer-bg: #212529;
+  --footer-text: #adb5bd;
+  --accent-color: #748ffc;
+  --accent-hover: #5c7cfa;
+  --accent-text: #212529;
+  --accent-color-rgb: 116, 143, 252;
+  --input-bg: #2b3035;
+  --filter-bg: rgba(116, 143, 252, 0.15);
+  
+  /* Priority colors in dark theme */
+  --priority-low: #51cf66;
+  --priority-low-bg: rgba(81, 207, 102, 0.2);
+  --priority-medium: #ff922b;
+  --priority-medium-bg: rgba(255, 146, 43, 0.2);
+  --priority-high: #ff6b6b;
+  --priority-high-bg: rgba(255, 107, 107, 0.2);
+  
+  /* Utility colors */
+  --danger-color: #ff6b6b;
+  --danger-bg: rgba(255, 107, 107, 0.2);
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Basic element styling */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-color);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+button {
+  font-family: var(--font-family);
+}
+
+/* Utility classes */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  .task-form-container, 
+  .task-list-container {
+    padding: 1rem;
+  }
+  
+  .filter-buttons {
+    justify-content: center;
+  }
+}
