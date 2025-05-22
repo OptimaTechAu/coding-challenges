@@ -1,0 +1,60 @@
+import { Priority, Task } from '../models';
+
+export const TASKS_INITIAL_DATA: Task[] = [
+  {
+    id: '1',
+    title: 'Complete project proposal',
+    description: 'Finalize the project proposal for client review',
+    completed: false,
+    priority: Priority.High,
+    createdAt: new Date('2023-06-15'),
+  },
+  {
+    id: '2',
+    title: 'Schedule team meeting',
+    description: 'Arrange weekly team meeting to discuss progress',
+    completed: true,
+    priority: Priority.Medium,
+    createdAt: new Date('2023-06-14'),
+  },
+  {
+    id: '3',
+    title: 'Research new technologies',
+    description: 'Look into emerging technologies for future projects',
+    completed: false,
+    priority: Priority.Low,
+    createdAt: new Date('2023-06-10'),
+  },
+  {
+    id: '4',
+    title: 'Update documentation',
+    description: 'Update project documentation with recent changes',
+    completed: false,
+    priority: Priority.Medium,
+    createdAt: new Date('2023-06-12'),
+  },
+  {
+    id: '5',
+    title: 'Review pull requests',
+    description: 'Review and merge pending pull requests',
+    completed: false,
+    priority: Priority.High,
+    createdAt: new Date('2023-06-13'),
+  },
+  {
+    id: '6',
+    title: 'Prepare client presentation',
+    description: 'Create slides for upcoming client presentation',
+    completed: false,
+    priority: Priority.High,
+    createdAt: new Date('2023-06-11'),
+  },
+  {
+    id: '7',
+    title: 'Update dependencies',
+    description: 'Update project dependencies to latest versions',
+    completed: true,
+    priority: Priority.Low,
+    createdAt: new Date('2023-06-09'),
+  },
+];

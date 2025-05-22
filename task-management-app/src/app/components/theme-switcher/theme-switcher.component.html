@@ -1,0 +1,18 @@
+<div class="theme-switcher">
+  <ng-container *ngIf="currentTheme$ | async as currentTheme">
+    <button
+      class="theme-toggle-btn"
+      [class.active]="currentTheme === 'dark'"
+      (click)="toggleTheme(currentTheme)"
+      [attr.aria-label]="
+        'Switch to ' + (currentTheme === 'light' ? 'dark' : 'light') + ' theme'
+      "
+    >
+      <fa-icon *ngIf="currentTheme === 'light'" [icon]="icons.MOON"></fa-icon>
+      <fa-icon *ngIf="currentTheme === 'dark'" [icon]="icons.SUN"></fa-icon>
+      <span class="theme-label"
+        >{{ currentTheme === "light" ? "Dark" : "Light" }} Mode</span
+      >
+    </button>
+  </ng-container>
+</div>
