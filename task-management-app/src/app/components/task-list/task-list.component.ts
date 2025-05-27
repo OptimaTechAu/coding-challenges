@@ -1,8 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { Priority, Task } from '../../models';
-import { DateFilterRange, SortDirection, TaskService } from '../../services';
+import { DateFilterRange, Priority, SortDirection, Task } from '../../models';
+import { TaskService } from '../../services';
 import {
   ICONS,
   PRIORITY_CLASSES,

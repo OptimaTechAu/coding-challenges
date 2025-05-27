@@ -1,7 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Theme, ThemeService } from '../../services';
+import { ThemeService } from '../../services';
 import { Observable } from 'rxjs';
 import { ICONS } from '../../constants/index';
+import { Theme } from 'src/app/models';
 
 @Component({
   selector: 'app-theme-switcher',

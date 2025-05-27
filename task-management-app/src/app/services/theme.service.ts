@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { DEFAULT_THEME, THEME_STORAGE_KEY } from '../constants/theme.constants';
-
-export type Theme = 'light' | 'dark';
+import { DEFAULT_THEME, THEME_STORAGE_KEY } from '../constants';
+import { Theme } from '../models';
 
 @Injectable({
   providedIn: 'root',

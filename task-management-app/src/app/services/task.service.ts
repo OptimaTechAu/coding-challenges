@@ -1,15 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Priority, Task } from '../models';
+import { DateFilterRange, Priority, SortDirection, Task } from '../models';
 import { DEFAULT_DATE_RANGE, DEFAULT_SORT_DIRECTION } from '../constants/index';
 import { TASKS_INITIAL_DATA } from '../constants/task.constants';
-
-export interface DateFilterRange {
-  startDate: Date | null;
-  endDate: Date | null;
-}
-
-export type SortDirection = 'asc' | 'desc';
 
 @Injectable({
   providedIn: 'root',

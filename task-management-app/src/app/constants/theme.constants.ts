@@ -1,4 +1,4 @@
-import { Theme } from '../services';
+import { Theme } from '../models';
 
 export const DEFAULT_THEME: Theme = 'light';
 
