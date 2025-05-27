@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-import { TaskService, DateFilterRange } from './task.service';
-import { Priority } from '../models';
+import { TaskService } from './task.service';
+import { DateFilterRange, Priority } from '../models';
 import { take } from 'rxjs/operators';
 
 describe('TaskService', () => {
