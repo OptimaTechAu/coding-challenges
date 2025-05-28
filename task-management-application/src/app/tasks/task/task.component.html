@@ -1,0 +1,8 @@
+<article>
+    <h2>{{ task.title }}</h2>
+    <time>{{ task.priority }}</time>
+    <p>{{ task.description }}</p>
+    <p class="actions">
+      <button (click)="onCompleteTask()">{{ task.completed === true ? 'Completed' : 'Complete' }}</button>
+    </p>
+</article>
