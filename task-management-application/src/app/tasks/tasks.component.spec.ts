@@ -56,6 +56,7 @@ describe('TasksComponent', () => {
     expect(component.filteredTasks.some(t => t.title === 'Submit report')).toBeTrue();
     // Optionally, check the DOM
     const taskTitles = fixture.nativeElement.querySelectorAll('app-task h2');
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const titles = Array.from(taskTitles).map((el: any) => el.textContent);
     expect(titles).toContain('Submit report');
   });

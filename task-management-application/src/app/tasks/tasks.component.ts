@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, Input, SimpleChanges, OnInit, OnChanges } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
 import { NewTaskComponent } from './new-task/new-task.component';
@@ -12,11 +12,11 @@ import { TaskComponent } from './task/task.component';
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css'
 })
-export class TasksComponent {
+export class TasksComponent implements OnInit, OnChanges {
   @Input() tasks!: Task[];
-  public selectedPriority: string = 'high';
+  public selectedPriority = 'high';
   public filteredTasks: Task[] = [];
-  public isAddingTask: boolean = false;
+  public isAddingTask = false;
 
   private _internalTasks: Task[] = [];
 
