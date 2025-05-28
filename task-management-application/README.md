@@ -1,10 +1,22 @@
 # TaskManagementApplication
 
+This project contains my implementation of a task management application as part of a coding challenge. The application allows users to create, manage, filter tasks with a simple responsive interface.
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.13.
 
 ## Development server
 
-To start a local development server, run:
+To prepare the local development environment:
+
+1. Ensure Node.js v18.19.1 and npm are installed
+
+2. Install all the dependencies
+
+```bash
+npm install
+```
+
+3. To start a local development server, run:
 
 ```bash
 ng serve
@@ -56,6 +68,20 @@ ng lint
 > "lint": "eslint '**/*.{ts,html}'"
 > ```
 
+## Completed Requirements
+
+### Core Features
+- ✅ Create and manage tasks with title, description, and priority levels
+- ✅ Mark tasks as complete/completed
+### Filtering & Sorting
+- ✅ Filter tasks by priority (High, Medium, Low)
+- ✅ Indication of active filters
+### UI/UX
+- ✅ Responsive design that works on mobile and desktop
+- ✅ Clean, modern UI with good visual hierarchy
+- ✅ Simple form validation
+
+
 ## Solution Design
 
 For a detailed overview of the application's architecture, design decisions, trade-offs, and best practices, please refer to the [SolutionDesign.md](./SolutionDesign.md) file in the project root.  
@@ -66,6 +92,7 @@ This document covers:
 - State management approach
 - Trade-offs and design patterns
 - Potential improvements and additional considerations
+
 
 ## Additional Resources
 
