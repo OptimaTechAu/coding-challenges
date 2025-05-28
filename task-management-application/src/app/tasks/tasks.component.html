@@ -1,0 +1,34 @@
+@if(isAddingTask) {
+<app-new-task
+  (addingTaskCancelled)="onCancelAddTask()"
+  (addingTask)="onAddTask($event)"
+></app-new-task>
+}
+
+<section id="tasks">
+  <header><h2>My Tasks</h2></header>
+  <menu>
+    <button>
+      <select [(ngModel)]="selectedPriority" (change)="onPriorityChange()">
+        <option value="high">High Priority</option>
+        <option value="medium">Medium Priority</option>
+        <option value="low">Low Priority</option>
+      </select>
+    </button>
+    <button (click)="onStartAddTask()">Add New Task</button>
+    @if(selectedPriority) {
+    <span class="filter-indicator">Filtered by: {{ selectedPriority }}</span>
+    }
+  </menu>
+
+  <ul>
+    @for (task of filteredTasks; track task.id) {
+    <li>
+      <app-task
+        [task]="task"
+        (taskComplete)="onCompleteTask($event)"
+      ></app-task>
+    </li>
+    }
+  </ul>
+</section>
