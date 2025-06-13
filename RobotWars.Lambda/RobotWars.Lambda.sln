@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35919.96 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotWars.Lambda", "RobotWars.Lambda\RobotWars.Lambda.csproj", "{4449F2D2-CA53-5D96-C84B-A3D3B47B6EA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotWars.Core", "RobotWars.Core\RobotWars.Core.csproj", "{24897A96-7D18-42E0-A51B-7BDCF9F438EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotWars.Tests", "RobotWars.Tests\RobotWars.Tests.csproj", "{23023959-8EF1-46A9-BFAA-A334C7FC0D80}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4449F2D2-CA53-5D96-C84B-A3D3B47B6EA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4449F2D2-CA53-5D96-C84B-A3D3B47B6EA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4449F2D2-CA53-5D96-C84B-A3D3B47B6EA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4449F2D2-CA53-5D96-C84B-A3D3B47B6EA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24897A96-7D18-42E0-A51B-7BDCF9F438EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24897A96-7D18-42E0-A51B-7BDCF9F438EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24897A96-7D18-42E0-A51B-7BDCF9F438EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24897A96-7D18-42E0-A51B-7BDCF9F438EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23023959-8EF1-46A9-BFAA-A334C7FC0D80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23023959-8EF1-46A9-BFAA-A334C7FC0D80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23023959-8EF1-46A9-BFAA-A334C7FC0D80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23023959-8EF1-46A9-BFAA-A334C7FC0D80}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C0744C49-E457-48D4-9ADD-0CC8D234171D}
+	EndGlobalSection
+EndGlobal
