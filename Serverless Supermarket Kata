@@ -1,7 +1,8 @@
 Supermarket Kata
 ================
 
-Develop a serverless solution using AWS Lambda and .NET Core to simulate a supermarket checkout system. The system should process scanned items and return the total price, applying any applicable special offers. There should be an emphasis on clean coding principles.
+Develop a serverless solution using AWS Lambda and .NET Core to simulate a supermarket checkout system. The system should process scanned items and return the total price, applying any applicable special offers. There should be an emphasis on [clean coding principles](Assets/Clean-Code-V2.4.pdf).
+
 ## Requirements
 
 A busy supermarket needs a modern, serverless checkout system to handle their daily transactions. Each checkout lane will be powered by an AWS Lambda function that processes scanned items and calculates totals in real time.
