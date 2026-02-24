@@ -19,7 +19,6 @@ The checkout accepts items in any order. If a B, then an A, then another B are s
 | D   | 15     	   |               |
 
 
-The checkout accepts items in any order, so that if we scan a B, an A, and another B, we will recognize the two Bs and price them at 45 (for a total price so far of 95). The pricing changes frequently, so pricing should be independent of the checkout. The interface to the checkout could look like:
 
 ```csharp
 interface ICheckout
