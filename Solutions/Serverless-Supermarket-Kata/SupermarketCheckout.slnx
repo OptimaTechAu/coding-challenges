@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SupermarketCheckout.Lambda/SupermarketCheckout.Lambda.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/SupermarketCheckout.Tests/SupermarketCheckout.Tests.csproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,42 @@
+# .gitignore for Optima-Test SupermarketCheckout Lambda project
+
+# Ignore build outputs
+src/**/bin/
+src/**/obj/
+tests/**/bin/
+tests/**/obj/
+
+# Ignore user-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore logs
+*.log
+
+# Ignore temporary files
+~$*
+*.tmp
+*.temp
+
+# Ignore NuGet packages
+*.nupkg
+
+# Ignore test results
+TestResults/
+
+# Ignore other system files
+.DS_Store
+Thumbs.db
+
+# Ignore AWS SAM build artifacts
+.aws-sam/
+
+# Ignore generated files
+*.Generated.cs
+
