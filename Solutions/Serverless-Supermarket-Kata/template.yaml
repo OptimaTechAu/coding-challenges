@@ -1,0 +1,110 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: Supermarket Checkout - Serverless checkout system with special offers
+
+Globals:
+  Function:
+    Timeout: 30
+    MemorySize: 256
+    Runtime: dotnet10
+    Architectures:
+      - x86_64
+
+Resources:
+  # DynamoDB table for storing checkout sessions
+  CheckoutSessionsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: CheckoutSessions
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: SessionId
+          AttributeType: S
+        - AttributeName: SKU
+          AttributeType: S
+      KeySchema:
+        - AttributeName: SessionId
+          KeyType: HASH
+        - AttributeName: SKU
+          KeyType: RANGE
+      TimeToLiveSpecification:
+        AttributeName: TTL
+        Enabled: true
+
+  CheckoutApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Prod
+      DefinitionBody:
+        openapi: "3.0.1"
+        info:
+          title: CheckoutApi
+          version: "1.0"
+        paths:
+          /checkout:
+            post:
+              responses:
+                "200":
+                  description: Successful checkout response
+                  content:
+                    application/json:
+                      schema:
+                        type: object
+              x-amazon-apigateway-integration:
+                type: aws
+                httpMethod: POST
+                uri:
+                  Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${CheckoutFunction.Arn}/invocations
+                requestTemplates:
+                  application/json: $input.body
+                responses:
+                  default:
+                    statusCode: "200"
+                    responseTemplates:
+                      application/json: ""
+                passthroughBehavior: when_no_match
+
+  CheckoutFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: Processes supermarket checkout requests and calculates totals with special offers
+      CodeUri: ./src/SupermarketCheckout.Lambda/
+      Handler: SupermarketCheckout.Lambda::SupermarketCheckout.Lambda.Function::FunctionHandler
+      Environment:
+        Variables:
+          CHECKOUT_TABLE_NAME: !Ref CheckoutSessionsTable
+      Policies:
+        - Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Action:
+                - dynamodb:GetItem
+                - dynamodb:PutItem
+                - dynamodb:UpdateItem
+                - dynamodb:DeleteItem
+                - dynamodb:Query
+                - dynamodb:Scan
+              Resource:
+                - !GetAtt CheckoutSessionsTable.Arn
+                - !Sub "${CheckoutSessionsTable.Arn}/index/*"
+      Events:
+        CheckoutApi:
+          Type: Api
+          Properties:
+            RestApiId: !Ref CheckoutApi
+            Path: /checkout
+            Method: POST
+
+Outputs:
+  CheckoutApi:
+    Description: API Gateway endpoint URL for the Checkout function
+    Value: !Sub "https://${CheckoutApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/checkout/"
+  CheckoutFunction:
+    Description: Checkout Lambda Function ARN
+    Value: !GetAtt CheckoutFunction.Arn
+  CheckoutFunctionIamRole:
+    Description: Implicit IAM Role created for Checkout function
+    Value: !GetAtt CheckoutFunctionRole.Arn
+  CheckoutSessionsTable:
+    Description: DynamoDB table for checkout sessions
+    Value: !Ref CheckoutSessionsTable

@@ -1,0 +1,30 @@
+Supermarket Kata
+================
+
+Develop a serverless solution using AWS Lambda and .NET Core to simulate a supermarket checkout system. The system should process scanned items and return the total price, applying any applicable special offers. There should be an emphasis on [clean coding principles](Assets/Clean-Code-V2.4.pdf).
+
+## Requirements
+
+A busy supermarket needs a modern, serverless checkout system to handle their daily transactions. Each checkout lane will be powered by an AWS Lambda function that processes scanned items and calculates totals in real time.
+Supermarket items are identified using Stock Keeping Units, or SKUs — represented by letters of the alphabet (A, B, C, and so on). Items are priced individually, but some items have multi-buy special offers: purchase N of them and they will cost Y pence instead of their combined unit price.
+For example, item A costs 50p individually, but with this week's special offer, buy three As and they cost only 130p.
+The checkout accepts items in any order. If a B, then an A, then another B are scanned, the system must recognise the two Bs and apply the special price of 45p (giving a running total of 95p). Pricing rules change frequently, so pricing must be independent of the checkout logic.
+
+### Example items
+
+| SKU | Unit Price | Special Price |
+|-----|-----------:|---------------|
+| A   | 50     	   | 3 for 130     |
+| B   | 30     	   | 2 for 45      |
+| C   | 20     	   |               |
+| D   | 15     	   |               |
+
+
+
+```csharp
+interface ICheckout
+{
+    void Scan(string item);
+    int GetTotalPrice();
+}
+```
